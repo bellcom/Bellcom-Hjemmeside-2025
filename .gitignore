@@ -1,0 +1,83 @@
+# ------------------------------------------------------------------------------
+# Drupal core & Composer dependencies (ignored if Composer is in charge)
+# ------------------------------------------------------------------------------
+core/
+vendor/
+vendor_bak/
+
+# If you have old .bak composer files you don't need:
+composer.json.bak
+composer.lock.bak
+composer.lock
+
+modules/contrib/
+themes/contrib/
+profiles/
+libraries/
+
+# ------------------------------------------------------------------------------
+# Drupal site files & directories you typically don't commit
+# ------------------------------------------------------------------------------
+# Uploaded files, private files, and other per-environment data:
+sites/*/files/
+sites/*/private/
+sites/*/backup_migrate/
+sites/*/php/
+sites/*/php/twig/
+sites/*/translations/
+sites/
+# ------------------------------------------------------------------------------
+# Potentially generated or local-only folders
+# ------------------------------------------------------------------------------
+logs/
+tmp/
+sessions/
+public_html/
+db.txt
+*.sql
+*.tar
+*.tar.gz
+*.zip
+*.gz
+
+# ------------------------------------------------------------------------------
+# OS, Editor, and Tool-specific files you don’t want in Git
+# ------------------------------------------------------------------------------
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# JetBrains IDEs
+.idea/
+*.iml
+
+# VSCode
+.vscode/
+
+# Node/npm/Yarn artifacts (if you happen to have a frontend build)
+node_modules/
+npm-debug.log*
+yarn.lock
+package-lock.json
+
+# ------------------------------------------------------------------------------
+# OPTIONAL: If you keep environment variables or overrides in .env
+# ------------------------------------------------------------------------------
+.env
+.env.*.local
+/.csslintrc
+/.eslintignore
+/.eslintrc.json
+/.ht.router.php
+/.htaccess
+/INSTALL.txt
+/README.txt
+/autoload.php
+/example.gitignore
+/index.php
+/robots.txt
+/update.php
+/web.config
+/.gitattributes

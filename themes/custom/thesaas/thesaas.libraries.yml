@@ -1,0 +1,29 @@
+global-styling:
+  version: 10.0
+  css:
+    base:
+      css/page.min.css: {}
+    component:    
+      css/swiper.min.css: {}
+    theme:
+      css/style.css: {}
+      css/custom.css: {}
+      css/local.css: {}
+  js:
+    js/aos.js: {}
+    js/swiper.min.js: {}
+    js/granim.min.js: {}
+    js/lity.min.js: {}
+    js/imagesloaded.js: {}
+    js/jquery.countdown.min.js: {}
+    js/jquery.waypoints.min.js: {}
+    js/jquery.counterup.min.js: {}
+    js/thesaas.js: {}
+    js/script.js: {}
+    js/global.js: {} 
+  dependencies:
+    - core/jquery     
+ckeditor_js:
+  version: 10.0
+  js:
+    js/ckeditor.config.js

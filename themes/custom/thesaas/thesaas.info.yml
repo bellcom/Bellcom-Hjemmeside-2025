@@ -1,0 +1,29 @@
+core: 8.x
+type: theme
+base theme: bootstrap_barrio
+core_version_requirement: ^10 || ^11
+name: 'TheSaas'
+description: 'A Bootstrap SaaS, Software & WebApp Drupal 11 Theme, created by Symphony Themes.'
+package: 'Bootstrap'
+
+regions:
+  user_left: 'User left'
+  user_right: 'User right'
+  branding: 'Site branding'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  header: 'Header'
+  title: 'Title'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'  
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  disabled: 'Disabled'
+
+libraries:
+  - 'thesaas/global-styling'
+
