@@ -122,4 +122,12 @@
   body > .footer .nav a:last-child {
     display: none; } }
 
+
+.navbar-light .logo-light { 
+    display: none !important;	
+}
+
+.navbar-light .logo-dark { 
+	display: inline-block !important;
+}
 /*# sourceMappingURL=style.css.map */
