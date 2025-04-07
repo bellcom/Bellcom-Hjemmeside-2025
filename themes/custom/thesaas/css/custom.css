@@ -16,7 +16,7 @@
 /* 01. Custom CSS
  --------------------------------------------------------------------------------*/
 html { font-size: 100%;}
-body { 
+body {
  font-family: "Open Sans", sans-serif;
  font-size: .9375rem;
  font-weight: 300;
@@ -37,8 +37,8 @@ body {
 }
 a { text-decoration: none; }
 
-hr { 
-  margin: 2rem auto; 
+hr {
+  margin: 2rem auto;
   opacity: 0.1;
 }
 .text-white hr {
@@ -122,7 +122,7 @@ hr {
   color: #fff;
 }
 .bg-blue-light {
-  background-color: #8ea6e6;
+  background-color: #116884;
   color: #fff;
 }
 .bg-pink {
@@ -174,7 +174,7 @@ div.hr {
 }
 
 /* Pagination */
-ul.pagination { 
+ul.pagination {
   justify-content: center;
   gap: 10px;
   margin-top: 2rem;
@@ -236,7 +236,7 @@ ul.pagination {
 .body-scrolled .navbar.navbar-light.navbar-sticky .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(117,117,117,0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
-.navbar-dark .nav-navbar>.nav-item>.nav-link, .navbar-dark .nav-navbar>.nav-link, 
+.navbar-dark .nav-navbar>.nav-item>.nav-link, .navbar-dark .nav-navbar>.nav-link,
 .navbar-stick-dark.stick .nav-navbar>.nav-item>.nav-link, .navbar-stick-dark.stick .nav-navbar>.nav-link {
     color: rgba(117, 117, 117, 0.8);
 }
@@ -260,7 +260,7 @@ ul.pagination {
   text-transform: none;
   line-height: 1;
   margin-left: 3px;
-  font-size: 0.5rem;  
+  font-size: 0.5rem;
 }
 .nav-navbar > .dropdown > .nav-link:after {
   content: "\e64b";
@@ -295,7 +295,7 @@ ul.pagination {
   transition: all 0.5s ease 0.25s;
   z-index: 1000;
   width: 80px;
-} 
+}
 .user-logged-in nav.tabs ul.tabs--primary {
   background: #fff none repeat scroll 0 0;
   border: medium none;
@@ -310,14 +310,14 @@ ul.pagination {
 .user-logged-in nav.tabs ul.tabs--primary li a {
   margin-right: 0;
 }
-.user-logged-in nav.tabs ul.tabs--primary li.active a, 
+.user-logged-in nav.tabs ul.tabs--primary li.active a,
 .user-logged-in nav.tabs ul.tabs--primary li:hover a {
   background: #ffb500 none repeat scroll 0 0;
   border: none;
   border-radius: 0;
   color: #fff;
 }
-.user-logged-in nav.tabs ul.tabs--primary li.active, 
+.user-logged-in nav.tabs ul.tabs--primary li.active,
 .user-logged-in nav.tabs ul.tabs--primary li:hover {
   opacity: 1;
 }
@@ -408,14 +408,14 @@ h6.section-info {
   width: 100%;
   height: 100%;
   z-index: -100;
-  left: 0;  
+  left: 0;
 }
 .viewsreference--view-title { display: none; }
 .row.gap-y .col, .row.gap-y [class*="col-"] {
     padding-bottom: 15px;
     padding-top: 15px;
 }
-.row-no-gap .row>.col, 
+.row-no-gap .row>.col,
 .row-no-gap .row>[class*="col-"] {
   padding-right: 0;
   padding-left: 0;
@@ -503,7 +503,7 @@ body.user-logged-in.path-user .site-footer {
 .form-inline form .form-wrapper,
 .form-inline form .js-form-item {
   margin-bottom: 0 !important;
-}  
+}
 .block-simplenews input.form-submit,
 .block-simplenews input.form-email {
   height: 50px;
@@ -511,9 +511,9 @@ body.user-logged-in.path-user .site-footer {
 
 /* Simplenews */
 .block-simplenews .description.text-muted,
-.block-simplenews #edit-manage { 
+.block-simplenews #edit-manage {
 
-  display: none; 
+  display: none;
 }
 .subscribe-inline .block-simplenews .field--name-mail,
 .subscribe-inline .block-simplenews .field--name-mail input {
@@ -651,7 +651,7 @@ nav.links .nav-link { padding: 0; }
   text-transform: uppercase;
 }
 .node--type-project .project-content .field--type-string .field--item {
-} 
+}
 
 /* Job */
 .page-node-type-job .field--name-field-job-location {
@@ -672,7 +672,7 @@ nav.links .nav-link { padding: 0; }
   top: 80px;
   transition: all 0.5s ease 0.25s;
   z-index: 1000;
-} 
+}
 .user-logged-in nav.tabs ul.nav.primary {
   background: #fff none repeat scroll 0 0;
   border: medium none;
@@ -690,14 +690,14 @@ nav.links .nav-link { padding: 0; }
   font-size: 0.7rem !important;
   padding: 10px 20px;
 }
-.user-logged-in nav.tabs ul.nav.primary li.active a, 
+.user-logged-in nav.tabs ul.nav.primary li.active a,
 .user-logged-in nav.tabs ul.nav.primary li:hover a {
   background: #ffb500 none repeat scroll 0 0;
   border: none;
   border-radius: 0;
   color: #fff;
 }
-.user-logged-in nav.tabs ul.nav.primary li.active, 
+.user-logged-in nav.tabs ul.nav.primary li.active,
 .user-logged-in nav.tabs ul.nav.primary li:hover {
   opacity: 1;
 }
@@ -863,7 +863,7 @@ a.lpb-btn { color: #4a90e2 !important; }
 
 /* 07. Swiper slider
  --------------------------------------------------------------------------------*/
- 
+
 /* Swiper */
 .swiper-container {
   width: 100%;
