@@ -1,9 +1,9 @@
 global-styling:
-  version: 10.0
+  # version: 10.0
   css:
     base:
       css/page.min.css: {}
-    component:    
+    component:
       css/swiper.min.css: {}
     theme:
       css/style.css: {}
@@ -20,9 +20,9 @@ global-styling:
     js/jquery.counterup.min.js: {}
     js/thesaas.js: {}
     js/script.js: {}
-    js/global.js: {} 
+    js/global.js: {}
   dependencies:
-    - core/jquery     
+    - core/jquery
 ckeditor_js:
   version: 10.0
   js:
