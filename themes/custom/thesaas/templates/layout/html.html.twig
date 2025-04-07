@@ -51,7 +51,7 @@
     node_type ? 'page-node-type-' ~ node_type|clean_class,
     db_offline ? 'db-offline',
     theme.settings.navbar_position ? 'navbar-is-' ~ theme.settings.navbar_position,
-    theme.has_glyphicons ? 'has-glyphicons',    
+    theme.has_glyphicons ? 'has-glyphicons',
   ]
 %}
 <!DOCTYPE html>
@@ -59,11 +59,11 @@
   <head>
     <head-placeholder token="{{ placeholder_token|raw }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
-	
+
 	<!-- Fontawesome -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700%7CMerriweather:300,300i%7CMaterial+Icons" rel="stylesheet">
-	
+
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
   </head>
@@ -74,9 +74,9 @@
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
-    
+
     <!-- Scroll top -->
-    <button class="btn btn-circle btn-primary scroll-top"><i class="fa fa-angle-up"></i></button>
+    <button class="btn btn-circle btn-dark scroll-top"><i class="fa fa-angle-up"></i></button>
 
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
   </body>
