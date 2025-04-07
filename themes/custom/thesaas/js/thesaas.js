@@ -57,7 +57,7 @@
         };
 
         // Google map
-        // 
+        //
         if ($('[data-provide~="map"]').length && window["google.maps.Map"] === undefined) {
           $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDRBLFOTTh2NFM93HpUA4ZrA99yKnCAsto&callback=thesaas.map");
         }
@@ -165,7 +165,7 @@
           });
 
           // Drawer
-          // 
+          //
           $(document).on('click', '.drawer-toggler, .drawer-close, .drawer-backdrop', function () {
             $('body').toggleClass('drawer-open');
           });
@@ -260,42 +260,52 @@
 
         thesaas.carousel = function () {
           $('.swiper-container').each(function () {
+            var swiper = $(this);
+            var slideCount = swiper.find('.swiper-slide').length;
+
+            // Only initialize Swiper if there's more than 1 slide
+            if (slideCount <= 1) {
+              swiper.addClass('single-slide'); // optional: for styling
+              return;
+            }
+
             var options = {
-              autoplay: 3000,
+              autoplay: 6000,
               speed: 1000,
               loop: true,
               breakpoints: {
-                // when window width is <= 640px
                 480: {
                   slidesPerView: 1
                 }
               }
             };
 
-            var swiper = $(this);
-
             if (swiper.data('slidesToShow')) {
               options.slidesPerView = swiper.data('slidesToShow');
             }
 
             if (swiper.find('.swiper-button-next').length) {
-              options.nextButton = '.swiper-button-next';
+              options.navigation = options.navigation || {};
+              options.navigation.nextEl = '.swiper-button-next';
             }
 
             if (swiper.find('.swiper-button-prev').length) {
-              options.prevButton = '.swiper-button-prev';
+              options.navigation = options.navigation || {};
+              options.navigation.prevEl = '.swiper-button-prev';
             }
 
             if (swiper.find('.swiper-pagination').length) {
-              options.pagination = '.swiper-pagination';
-              options.paginationClickable = true;
+              options.pagination = {
+                el: '.swiper-pagination',
+                clickable: true
+              };
             }
 
             options = $.extend(options, thesaas.getDataOptions(swiper));
 
-            new Swiper(swiper, options);
+            new Swiper(swiper[0], options); // pass DOM element instead of jQuery object
           });
-        }
+        };
 
 
         //----------------------------------------------------/
@@ -352,10 +362,10 @@
 
           // CountTo
           /*var waypoints = $('[data-provide~="counter"]:not(.counted)').waypoint({
-            handler: function(direction) {      
-              $(this.element).countTo().addClass('counted');      
-            },      
-            offset: '100%'      
+            handler: function(direction) {
+              $(this.element).countTo().addClass('counted');
+            },
+            offset: '100%'
           });*/
           $('.counter').counterUp({
             delay: 10,
@@ -364,18 +374,18 @@
 
 
           // Count Down - OLD
-          /*      
-          $('[data-countdown]').each(function() {      
-            var format = '%D day%!D %H:%M:%S';     
+          /*
+          $('[data-countdown]').each(function() {
+            var format = '%D day%!D %H:%M:%S';
             var countdown = $(this);
-      
-            if ( countdown.hasDataAttr('format') )      
+
+            if ( countdown.hasDataAttr('format') )
               format = countdown.data('format');
 
-           countdown.countdown( countdown.data('countdown'), function(event) {      
-              countdown.html(event.strftime( format ));      
-            } )      
-          });      
+           countdown.countdown( countdown.data('countdown'), function(event) {
+              countdown.html(event.strftime( format ));
+            } )
+          });
           */
 
           // Count Down
@@ -414,9 +424,9 @@
 
           // Preview fix which wasn't working very well
           /*
-          $(window).on('load', function() {      
-            AOS.refresh();      
-          });      
+          $(window).on('load', function() {
+            AOS.refresh();
+          });
           */
 
           //$(window).on('resize', function () { AOS.refresh(); });
@@ -472,7 +482,7 @@
 
 
           // Topbar toggler
-          // 
+          //
           $(document).on('click', '.navbar-toggler', function () {
             //body.toggleClass('topbar-reveal').prepend('<div class="topbar-backdrop"></div>');
             body.toggleClass('navbar-open');
