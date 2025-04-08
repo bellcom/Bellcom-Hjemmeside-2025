@@ -17,6 +17,11 @@
   color: #116884;
 }
 
+#edit-submit {
+  background-color: #009dddff;
+  border: 0;
+}
+
 .blockquote .quote-sign::before {
   content: '“';
   display: block;
