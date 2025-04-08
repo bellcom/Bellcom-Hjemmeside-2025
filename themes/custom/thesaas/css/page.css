@@ -14808,16 +14808,16 @@ h6, .h6 {
     opacity: .1; }
   .blockquote .quote-sign-end::before {
     content: '”'; }
-  .blockquote p::before,
-  .blockquote p::after {
+  .blockquote p.quote::before,
+  .blockquote p.quote::after {
     font-size: 1.5rem;
     line-height: 1;
     opacity: .5; }
-  .blockquote p::before {
+  .blockquote p.quote::before {
     content: '“';
     margin-left: -13px;
     padding-right: 4px; }
-  .blockquote p::after {
+  .blockquote p.quote::after {
     content: '”';
     margin-right: -13px;
     padding-left: 4px; }

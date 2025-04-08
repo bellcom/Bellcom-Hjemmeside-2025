@@ -2,9 +2,6 @@
 # Please place your own CSS on this file
 # ------------------------------------------------------------------------*/
 
-blockquote p:after, blockquote p:before {
-  display: none;
-}
 
 .social-icon {
   display: inline-flex;
