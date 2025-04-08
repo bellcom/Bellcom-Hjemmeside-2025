@@ -11,8 +11,23 @@
   font-size: 9rem;
   line-height: .2;
   font-weight: 600;
-  padding-top: 4rem;
-  opacity: .1; }
+  padding-top: 2rem;
+  text-align: right;
+  opacity: 0.8;
+  color: #116884;
+}
+
+.blockquote .quote-sign::before {
+  content: '“';
+  display: block;
+  font-size: 9rem;
+  line-height: .2;
+  font-weight: 600;
+  padding-top: 2rem;
+  text-align: left;
+  opacity: 0.8;
+  color: #116884;
+}
 
 .social-icon {
   display: inline-flex;
