@@ -873,10 +873,7 @@ a.lpb-btn { color: #4a90e2 !important; }
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.swiper-slide {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+
 .swiper-container.no-padding .swiper-slide {
   padding-top: 0;
   padding-bottom: 0;
@@ -1046,9 +1043,7 @@ a.lpb-btn { color: #4a90e2 !important; }
 .swiper-pagination-bullet-active {
   background: #777;
 }
-.swiper-wrapper {
-  padding-bottom: 40px;
-}
+
 .swiper-pagination-inside .swiper-pagination {
   bottom: 1rem;
 }
