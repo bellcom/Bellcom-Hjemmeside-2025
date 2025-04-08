@@ -60,7 +60,7 @@
 
   <a id="top"></a>
 
-	
+
 {# Navbar #}
 <nav class="navbar navbar-expand-lg navbar-sticky navbar-sticky-dark {{ mainmenu_class }}" id="navbar-main">
 	<div class="container">
@@ -71,7 +71,7 @@
 		      {% if page.user_left %}
             {{ page.user_left }}
           {% endif %}
-			  
+
           {% if page.user_right %}
 	          <div class="pull-right">
 	            {{ page.user_right }}
@@ -81,8 +81,8 @@
 		  </div>
 		</div>
     {% endif %}
-	  
-	  
+
+
     {% if page.navigation or page.navigation_collapsible or page.branding %}
     {% block navbar %}
       <div class="navbar-left">
@@ -97,7 +97,7 @@
       {% endif %}
     {% endblock %}
     {% endif %}
-	  <a class="btn btn-xs btn-round" href="#" style="background-color: #373a35; color: white;">Book demo</a>
+	  <a class="btn btn-round" href="#" style="background-color: #373a35; color: white;">Book demo</a>
   </div>
 </nav>
 
@@ -105,7 +105,7 @@
 {# Main #}
 {% block main %}
   <main id="main-content" class="main-content js-quickedit-main-content">
-		
+
         {# Action Links #}
         {% if action_links %}
           {% block action_links %}
