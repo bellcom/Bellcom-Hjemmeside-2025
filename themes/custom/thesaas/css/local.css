@@ -1,7 +1,23 @@
 /*------------------------------------------------------------------------
 # Please place your own CSS on this file
 # ------------------------------------------------------------------------*/
+.blockquote .quote::before,
+.blockquote .quote::after {
+  font-size: 2.2rem;
+  line-height: 1;
+  opacity: .5; }
+.blockquote .quote::before {
+  content: '“';
+  margin-left: -13px;
+  padding-right: 4px; }
+.blockquote .quote::after {
+  content: '”';
+  margin-right: -13px;
+  padding-left: 4px; }
 
+blockquote p:before, blockquote p:after {
+  display: none;
+}
 
 .social-icon {
   display: inline-flex;
