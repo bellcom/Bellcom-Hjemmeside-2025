@@ -71,7 +71,7 @@
 		      {% if page.user_left %}
             {{ page.user_left }}
           {% endif %}
-			  
+
           {% if page.user_right %}
 	          <div class="pull-right">
 	            {{ page.user_right }}
@@ -81,8 +81,8 @@
 		  </div>
 		</div>
     {% endif %}
-	  
-	  
+
+
     {% if page.navigation or page.navigation_collapsible or page.branding %}
     {% block navbar %}
       <div class="navbar-left">
@@ -97,7 +97,7 @@
       {% endif %}
     {% endblock %}
     {% endif %}
-	  <a class="btn btn-xs btn-round" href="#" style="background-color: #373a35; color: white;">Book demo</a>
+	  <a class="btn btn-round" href="#" style="background-color: #373a35; color: white;">Book demo</a>
   </div>
 </nav>
 
@@ -119,7 +119,7 @@
           {% endif %}
     </header>
     {% endif %}
-    {# End Header #}  
+    {# End Header #}
 
     {# Title #}
     {% if page.title  %}
@@ -127,11 +127,11 @@
       {# Title #}
       {% block title %}
           {{ page.title }}
-      {% endblock %}	 
+      {% endblock %}
     </div>
     {% endif %}
     {# End Title #}
-  
+
     <div class="row">
       {# Sidebar First #}
       {% if page.sidebar_first %}
@@ -151,7 +151,7 @@
           page.sidebar_first is empty and page.sidebar_second is empty ? 'col-lg-12'
         ]
       %}
-      <div{{ content_attributes.addClass(content_classes) }}>        
+      <div{{ content_attributes.addClass(content_classes) }}>
         {# Content #}
         {% block content %}
           <a id="main-content"></a>
