@@ -151,7 +151,7 @@ function thesaas_form_contact_message_book_en_demo_form_alter(&$form, \Drupal\Co
 
   if (!empty($solution) && in_array($solution, $valid_values)) {
     if (isset($form['field_solution']['widget'][0]['value'])) {
-      $form['field_solution']['widget'][0]['value']['#default_value'] = $solution;
+      $form['field_solution']['widget'][0]['value']['#value'] = $solution;
     }
   }
 }
