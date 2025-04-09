@@ -5,8 +5,8 @@
  *
  * Place your custom PHP code in this file.
  */
- 
- 
+
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
@@ -42,12 +42,12 @@ function thesaas_preprocess_page(&$variables) {
   if ($color != 'default') {
     $variables['#attached']['library'][] = 'thesaas/'.$color.'-styling';
   }
-  
+
   // Theme menu
   $variables['mainmenu_class'] = '';
-  
+
   $mainmenu_transparent_flag = 0;
-  
+
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
     if ($node->hasField('field_menu_transparent')) {
 	  //var_dump($node->get('field_menu_transparent')->getValue());
@@ -70,7 +70,7 @@ function thesaas_preprocess_page(&$variables) {
 		}
 	}
   }
-  
+
   $menu = theme_get_setting('theme_menu');
   if( !$mainmenu_transparent_flag) {
     if( $menu == 'menudark') {
@@ -86,8 +86,8 @@ function thesaas_preprocess_page(&$variables) {
   else {
     $variables['mainmenu_class'] = 'navbar-light';
   }
-  
-  
+
+
 }
 
 /**
@@ -98,7 +98,7 @@ function thesaas_theme_suggestions_block_alter(&$suggestions, $variables) {
   if (isset($content['#block_content']) && $content['#block_content'] instanceof \Drupal\block_content\BlockContentInterface) {
     $suggestions[] = 'block__' . $content['#block_content']->bundle();
   }
-   
+
 }
 
 /**
@@ -116,11 +116,11 @@ function thesaas_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_s
   // disable submit button on the search block form
   if (in_array($form_id, ['search_block_form', 'search_form'])) {
     $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
-    
+
     $form[$key]['submit']['#access'] = false;
   }
   if (strpos($form_id, 'simplenews_subscriptions') !== false) {
-    //dpm($form); 
+    //dpm($form);
     //$form['actions']['subscribe']['#submit'][] = 'thesaas_module_simplenews_subscribe';
     //$form['actions']['unsubscribe']['#submit'][] = 'thesaas_module_simplenews_unsubscribe';
   }
@@ -135,4 +135,16 @@ function thesaas_module_simplenews_unsubscribe(&$form, \Drupal\Core\Form\FormSta
     var_dump('we sent a form woohoo');
     //$url = \Drupal\Core\Url::fromUserInput('/page-thank-you');
     //$form_state->setRedirectUrl($url);
+}
+
+function thesaas_form_contact_message_book_en_demo_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+    $solution = \Drupal::request()->query->get('solution');
+
+    // Brug værdien til at sætte default på field_solution
+    if (!empty($solution) && isset($form['field_solution'])) {
+      if (isset($form['field_solution']['#options'][$solution])) {
+        $form['field_solution']['#default_value'] = $solution;
+      }
+    }
 }
