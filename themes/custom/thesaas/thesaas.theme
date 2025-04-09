@@ -7,9 +7,17 @@
  */
 
 
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
+
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
+
+
+
+
 function thesaas_theme_suggestions_page_alter(array &$suggestions, array $variables) {
 
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
@@ -137,21 +145,26 @@ function thesaas_module_simplenews_unsubscribe(&$form, \Drupal\Core\Form\FormSta
     //$form_state->setRedirectUrl($url);
 }
 
-function thesaas_form_contact_message_book_en_demo_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  $solution = \Drupal::request()->query->get('solution');
+function thesaas_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+  if ($block->getBaseId() === 'contact_form' && $block->getDerivativeId() === 'book_en_demo') {
+    $solution = \Drupal::request()->query->get('solution');
+    $valid_values = [
+      'digital_skiltning',
+      'formular',
+      'valg_og_bemanding',
+      'webplatforme',
+      'borgerinddragelse',
+      'moder_og_dagsorden',
+    ];
 
-  $valid_values = [
-    'digital_skiltning',
-    'formular',
-    'valg_og_bemanding',
-    'webplatforme',
-    'borgerinddragelse',
-    'moder_og_dagsorden',
-  ];
-
-  if (!empty($solution) && in_array($solution, $valid_values)) {
-    if (isset($form['field_solution']['widget'][0]['value'])) {
-      $form['field_solution']['widget'][0]['value']['#value'] = $solution;
+    if (!empty($solution) && in_array($solution, $valid_values)) {
+      // Recursively find the form element.
+      foreach (Element::children($build['content']) as $key) {
+        if (isset($build['content'][$key]['field_solution']['widget'][0]['value'])) {
+          $build['content'][$key]['field_solution']['widget'][0]['value']['#value'] = $solution;
+        }
+      }
     }
   }
 }
+
