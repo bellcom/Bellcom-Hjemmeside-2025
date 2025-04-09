@@ -17,6 +17,21 @@
   color: #116884;
 }
 
+#contact-message-book-en-demo #edit-submit {
+  background-color: #373a35;
+}
+
+#contact-message-book-en-demo #edit-submit:hover {
+  border-color: #373a35;
+  background-color: #373a35;
+  box-shadow: 0 1px 10px rgba(55, 58, 53, 0.4);
+}
+
+#contact-message-book-en-demo #edit-submit:focus {
+  box-shadow: 0 0 0 0rem rgba(55, 58, 53, 0.4);
+}
+
+
 .btn-primary {
   color: #fff;
   background-color: #009dddff;
