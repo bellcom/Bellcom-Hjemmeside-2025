@@ -18,7 +18,7 @@ $(function() {
   | Read their complete description and modify them based on your need.
   |
   */
- 
+
   thesaas.config({
 
     /*
@@ -56,7 +56,7 @@ $(function() {
     | visitor a better experience for scrolling.
     |
     */
-   
+
     smoothScroll: true
 
   });
@@ -281,5 +281,33 @@ $(function() {
 }($, window);
 
 
+})(jQuery, Drupal);
+
+(function ($, Drupal) {
+  Drupal.behaviors.preSelectSolution = {
+    attach: function (context, settings) {
+      // Use setTimeout to ensure the DOM is fully loaded
+      setTimeout(function() {
+        // Target the specific form by ID
+        if ($('#contact-message-book-en-demo-form').length) {
+          // Get the URL parameters
+          const urlParams = new URLSearchParams(window.location.search);
+          const solutionParam = urlParams.get('solution');
+
+          // If we have a solution parameter
+          if (solutionParam) {
+            // Target the specific select field by ID
+            const selectElement = $('#edit-field-solution');
+
+            // If the select element exists and has an option with the value from the URL
+            if (selectElement.length && selectElement.find('option[value="' + solutionParam + '"]').length) {
+              // Set the selected option
+              selectElement.val(solutionParam).trigger('change');
+            }
+          }
+        }
+      }, 500); // Small delay to ensure form is fully loaded
+    }
+  };
 })(jQuery, Drupal);
 
