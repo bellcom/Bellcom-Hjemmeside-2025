@@ -138,13 +138,25 @@ function thesaas_module_simplenews_unsubscribe(&$form, \Drupal\Core\Form\FormSta
 }
 
 function thesaas_form_contact_message_book_en_demo_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $solution = \Drupal::request()->query->get('solution');
 
-    $solution = \Drupal::request()->query->get('solution');
+  // Tjek at feltet findes
+  if (!empty($solution) && isset($form['field_solution'])) {
+    // Udskriv mulige værdier
+    $options = array_keys($form['field_solution']['#options']);
+    \Drupal::messenger()->addMessage('Mulige options: ' . implode(', ', $options));
+    \Drupal::messenger()->addMessage('Modtaget query string: ' . $solution);
 
-    // Brug værdien til at sætte default på field_solution
-    if (!empty($solution) && isset($form['field_solution'])) {
-      if (isset($form['field_solution']['#options'][$solution])) {
-        $form['field_solution']['#default_value'] = $solution;
-      }
+    // Tjek om værdien er gyldig
+    if (in_array($solution, $options)) {
+      $form['field_solution']['#default_value'] = $solution;
+      \Drupal::messenger()->addMessage('✅ Default value sat til: ' . $solution);
     }
+    else {
+      \Drupal::messenger()->addMessage('❌ Værdien "' . $solution . '" findes ikke i options.');
+    }
+  }
+  else {
+    \Drupal::messenger()->addMessage('⚠️ Enten mangler query string, eller feltet findes ikke.');
+  }
 }
