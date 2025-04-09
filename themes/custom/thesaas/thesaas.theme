@@ -158,10 +158,15 @@ function thesaas_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginI
     ];
 
     if (!empty($solution) && in_array($solution, $valid_values)) {
-      // Recursively find the form element.
-      foreach (Element::children($build['content']) as $key) {
-        if (isset($build['content'][$key]['field_solution']['widget'][0]['value'])) {
-          $build['content'][$key]['field_solution']['widget'][0]['value']['#value'] = $solution;
+      // Try to locate the form in the render array
+      if (isset($build['content']) && is_array($build['content'])) {
+        foreach ($build['content'] as &$sub_element) {
+          if (
+            isset($sub_element['field_solution']['widget'][0]['value']) &&
+            is_array($sub_element['field_solution']['widget'][0]['value'])
+          ) {
+            $sub_element['field_solution']['widget'][0]['value']['#value'] = $solution;
+          }
         }
       }
     }
