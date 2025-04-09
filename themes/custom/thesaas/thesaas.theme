@@ -141,6 +141,11 @@ function thesaas_form_contact_message_book_en_demo_form_alter(&$form, \Drupal\Co
   // Få værdien fra URL
   $solution = \Drupal::request()->query->get('solution');
 
+// Sæt en initial default value for field_solution, hvis ikke sat
+  if (!isset($form['field_solution']['#default_value'])) {
+    $form['field_solution']['#default_value'] = 'digital_skiltning'; // Sæt en standardværdi
+  }
+
   // Tjek om værdien findes i feltet
   if (!empty($solution) && isset($form['field_solution'])) {
     // Liste med gyldige værdier for field_solution
