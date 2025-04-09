@@ -138,22 +138,16 @@ function thesaas_module_simplenews_unsubscribe(&$form, \Drupal\Core\Form\FormSta
 }
 
 function thesaas_form_contact_message_book_en_demo_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  // Få værdien fra URL
+  // Get the 'solution' query parameter from the URL
   $solution = \Drupal::request()->query->get('solution');
 
-// Sæt en initial default value for field_solution, hvis ikke sat
-  if (!isset($form['field_solution']['#default_value'])) {
-    $form['field_solution']['#default_value'] = 'digital_skiltning'; // Sæt en standardværdi
-  }
+  // List of valid options for field_solution (adjust these values as per your configuration)
+  $valid_values = ['digital_skiltning', 'formular', 'valg_og_bemanding', 'webplatforme', 'borgerinddragelse', 'moder_og_dagsorden'];  // Replace with your actual field options
 
-  // Tjek om værdien findes i feltet
-  if (!empty($solution) && isset($form['field_solution'])) {
-    // Liste med gyldige værdier for field_solution
-    $valid_values = ['digital_skiltning', 'formular', 'valg_og_bemanding', 'webplatforme', 'borgerinddragelse', 'moder_og_dagsorden']; // Erstat med dine faktiske værdier
-
-    // Hvis værdien er gyldig, sæt den som default
-    if (in_array($solution, $valid_values)) {
-      $form['field_solution']['#default_value'] = $solution;
-    }
+  // If the 'solution' parameter is set and is a valid option
+  if (!empty($solution) && in_array($solution, $valid_values)) {
+    // Set the default value for the field_solution field
+    $form['field_solution']['#default_value'] = $solution;
   }
+  // If the solution parameter is not valid, we keep the current default value or let it be empty
 }
