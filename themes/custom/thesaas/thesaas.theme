@@ -121,6 +121,27 @@ function thesaas_preprocess_block(&$variables) {
 * Implements hook_form_alter() to add classes to the search form.
 */
 function thesaas_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+// Check if this is the contact form 'book_en_demo'
+  if ($form_id === 'contact_message_book_en_demo_form') {
+    $solution = \Drupal::request()->query->get('solution');
+
+    $valid_values = [
+      'digital_skiltning',
+      'formular',
+      'valg_og_bemanding',
+      'webplatforme',
+      'borgerinddragelse',
+      'moder_og_dagsorden',
+    ];
+
+    if (!empty($solution) && in_array($solution, $valid_values)) {
+      if (isset($form['field_solution'])) {
+        $form['field_solution']['widget'][0]['value']['#default_value'] = $solution;
+      }
+    }
+  }
+
   // disable submit button on the search block form
   if (in_array($form_id, ['search_block_form', 'search_form'])) {
     $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
@@ -145,31 +166,4 @@ function thesaas_module_simplenews_unsubscribe(&$form, \Drupal\Core\Form\FormSta
     //$form_state->setRedirectUrl($url);
 }
 
-function thesaas_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
-  if ($block->getBaseId() === 'contact_form' && $block->getDerivativeId() === 'book_en_demo') {
-    $solution = \Drupal::request()->query->get('solution');
-    $valid_values = [
-      'digital_skiltning',
-      'formular',
-      'valg_og_bemanding',
-      'webplatforme',
-      'borgerinddragelse',
-      'moder_og_dagsorden',
-    ];
-
-    if (!empty($solution) && in_array($solution, $valid_values)) {
-      // Try to locate the form in the render array
-      if (isset($build['content']) && is_array($build['content'])) {
-        foreach ($build['content'] as &$sub_element) {
-          if (
-            isset($sub_element['field_solution']['widget'][0]['value']) &&
-            is_array($sub_element['field_solution']['widget'][0]['value'])
-          ) {
-            $sub_element['field_solution']['widget'][0]['value']['#value'] = $solution;
-          }
-        }
-      }
-    }
-  }
-}
 
