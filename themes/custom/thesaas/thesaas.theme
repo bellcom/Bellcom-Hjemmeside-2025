@@ -138,25 +138,17 @@ function thesaas_module_simplenews_unsubscribe(&$form, \Drupal\Core\Form\FormSta
 }
 
 function thesaas_form_contact_message_book_en_demo_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Få værdien fra URL
   $solution = \Drupal::request()->query->get('solution');
 
-  // Tjek at feltet findes
+  // Tjek om værdien findes i feltet
   if (!empty($solution) && isset($form['field_solution'])) {
-    // Udskriv mulige værdier
-    $options = array_keys($form['field_solution']['#options']);
-    \Drupal::messenger()->addMessage('Mulige options: ' . implode(', ', $options));
-    \Drupal::messenger()->addMessage('Modtaget query string: ' . $solution);
+    // Liste med gyldige værdier for field_solution
+    $valid_values = ['digital_skiltning', 'formular', 'valg_og_bemanding', 'webplatforme', 'borgerinddragelse', 'moder_og_dagsorden']; // Erstat med dine faktiske værdier
 
-    // Tjek om værdien er gyldig
-    if (in_array($solution, $options)) {
+    // Hvis værdien er gyldig, sæt den som default
+    if (in_array($solution, $valid_values)) {
       $form['field_solution']['#default_value'] = $solution;
-      \Drupal::messenger()->addMessage('✅ Default value sat til: ' . $solution);
     }
-    else {
-      \Drupal::messenger()->addMessage('❌ Værdien "' . $solution . '" findes ikke i options.');
-    }
-  }
-  else {
-    \Drupal::messenger()->addMessage('⚠️ Enten mangler query string, eller feltet findes ikke.');
   }
 }
