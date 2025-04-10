@@ -160,6 +160,12 @@ hr {
   background-color:#ac9d93ff;
   color: #fff;
 }
+
+.bg-green {
+  background-color: #495f41ff;
+  color: white;
+}
+
 /* Card */
 .card {
     border: 0;
