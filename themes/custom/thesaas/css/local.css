@@ -25,7 +25,7 @@
   color: #ac9d93ff;
 }
 
-.webplatforme .blockquote .quote-sign::after, .valg-og-bemanding .blockquote .quote-sign::before {
+.webplatforme .blockquote .quote-sign::after, .webplatforme .blockquote .quote-sign::before {
   color: #495f41ff;
 }
 
