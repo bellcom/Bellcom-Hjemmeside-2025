@@ -35,6 +35,11 @@
   box-shadow: 0 1px 10px rgba(55, 58, 53, 0.4);
 }
 
+
+#contact-message-book-en-demo-form #edit-submit:focus {
+  box-shadow: 0 0 0 0rem rgba(55, 58, 53, 0.4);
+}
+
 #contact-message-formular-losning-form #edit-submit:focus {
   box-shadow: 0 0 0 0rem rgba(55, 58, 53, 0.4);
 }
@@ -49,8 +54,18 @@
   box-shadow: 0 1px 10px rgba(55, 58, 53, 0.4);
 }
 
-#contact-message-book-en-demo-form #edit-submit:focus {
+#contact-message-valg-og-bemanding-form #edit-submit:focus {
   box-shadow: 0 0 0 0rem rgba(55, 58, 53, 0.4);
+}
+
+#contact-message-valg-og-bemanding-form #edit-submit {
+  background-color: #373a35;
+}
+
+#contact-message-valg-og-bemanding-form #edit-submit:hover {
+  border-color: #373a35;
+  background-color: #373a35;
+  box-shadow: 0 1px 10px rgba(55, 58, 53, 0.4);
 }
 
 
