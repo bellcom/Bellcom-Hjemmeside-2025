@@ -17,6 +17,12 @@
   color: #116884;
 }
 
+.formular .blockquote .quote-sign::after, .formular .blockquote .quote-sign::before {
+  color: #dbb42c;
+}
+
+
+
 #contact-message-book-en-demo-form #edit-submit {
   background-color: #373a35;
 }
