@@ -150,6 +150,11 @@ hr {
 .bg-red {
   background-color: #f64d62;
 }
+
+.bg-yellow {
+  background-color: #dbb42c;
+  color: white;
+}
 /* Card */
 .card {
     border: 0;
