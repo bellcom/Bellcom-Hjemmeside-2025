@@ -155,6 +155,11 @@ hr {
   background-color: #dbb42c;
   color: white;
 }
+
+bg-sand {
+  background-color:#ac9d93ff;
+  color: #fff;
+}
 /* Card */
 .card {
     border: 0;
