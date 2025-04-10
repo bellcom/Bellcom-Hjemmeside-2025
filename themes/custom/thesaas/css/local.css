@@ -170,3 +170,7 @@
   color: #fff;
   transform: scale(1.065);
 }
+
+.bg-dark {
+  background-color: #495057;
+}
