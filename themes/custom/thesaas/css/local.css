@@ -29,6 +29,10 @@
   color: #495f41ff;
 }
 
+.borgerinddragelse .blockquote .quote-sign::after, .borgerinddragelse .blockquote .quote-sign::before {
+  color: #495057;
+}
+
 #contact-message-book-en-demo-form #edit-submit {
   background-color: #373a35;
 }
@@ -68,6 +72,21 @@
 }
 
 #contact-message-webplatforme-form #edit-submit:hover {
+  border-color: white;
+  background-color: white;
+  box-shadow: 0 1px 10px rgba(255, 255, 255, 0.4);
+}
+
+#contact-message-borgerinddragelse-form #edit-submit:focus {
+  box-shadow: 0 0 0 0rem rgba(255, 255, 255, 0.4);
+}
+
+#contact-message-borgerinddragelse-form #edit-submit {
+  background-color: white;
+  color: black;
+}
+
+#contact-message-borgerinddragelse-form #edit-submit:hover {
   border-color: white;
   background-color: white;
   box-shadow: 0 1px 10px rgba(255, 255, 255, 0.4);
