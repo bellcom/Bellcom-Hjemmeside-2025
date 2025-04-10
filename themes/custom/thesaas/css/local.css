@@ -21,6 +21,10 @@
   color: #dbb42c;
 }
 
+.valg-og-bemanding .blockquote .quote-sign::after, .valg-og-bemanding .blockquote .quote-sign::before {
+  color: #ac9d93ff;
+}
+
 #contact-message-book-en-demo-form #edit-submit {
   background-color: #373a35;
 }
