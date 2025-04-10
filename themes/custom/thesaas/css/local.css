@@ -25,6 +25,10 @@
   color: #ac9d93ff;
 }
 
+.webplatforme .blockquote .quote-sign::after, .valg-og-bemanding .blockquote .quote-sign::before {
+  color: #495f41ff;
+}
+
 #contact-message-book-en-demo-form #edit-submit {
   background-color: #373a35;
 }
@@ -52,6 +56,20 @@
   border-color: #373a35;
   background-color: #373a35;
   box-shadow: 0 1px 10px rgba(55, 58, 53, 0.4);
+}
+
+#contact-message-webplatforme-form #edit-submit:focus {
+  box-shadow: 0 0 0 0rem rgba(255, 255, 255, 0.4);
+}
+
+#contact-message-webplatforme-form #edit-submit {
+  background-color: white;
+}
+
+#contact-message-webplatforme-form #edit-submit:hover {
+  border-color: white;
+  background-color: white;
+  box-shadow: 0 1px 10px rgba(255, 255, 255, 0.4);
 }
 
 #contact-message-valg-og-bemanding-form #edit-submit:focus {
