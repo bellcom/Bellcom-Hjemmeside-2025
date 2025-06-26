@@ -212,3 +212,92 @@
 .bg-dark {
   background-color: #495057 !important;
 }
+
+.footer_bottom {
+  width: 100%;
+  background-color: #fafbfb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.footer__upper-wrapper {
+  flex-flow: column;
+  gap: clamp(3rem,1.5vw + 2.65rem,4rem);
+  display: flex;
+}
+
+.logo__link-wrapper {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  align-content: stretch;
+}
+
+.footer__logo {
+  flex: 0 auto;
+}
+
+.footer__site-links-wrapper {
+  flex: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.footer__site-links-list {
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  display: flex;
+  gap: clamp(1.5rem,.75vw + 1.32rem,2rem);
+  margin: revert;
+}
+
+.footer__site-links-list li a {
+  text-transform: uppercase;
+  color: #757575;
+  font-weight: 600;
+  transition: .2s ease;
+  text-decoration: none;
+}
+
+.footer__site-links-list li a:hover {
+  color: #353535;
+}
+
+.footer__bottom-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gdpr-links-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.gdpr-links-wrapper ul {
+  margin: revert;
+  display: flex;
+  padding: 0;
+  gap: clamp(1.5rem,.75vw + 1.32rem,2rem);
+}
+
+.gdpr-links-wrapper ul li a {
+  text-transform: uppercase;
+  color: #757575;
+  font-weight: 600;
+  text-decoration: none;
+  transition: .2s ease;
+}
+
+.gdpr-links-wrapper ul li a:hover {
+  color: #353535;
+
+}
+
+.footer__bottom-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
