@@ -222,7 +222,7 @@
 
 .footer__upper-wrapper {
   flex-flow: column;
-  gap: clamp(3rem,1.5vw + 2.65rem,4rem);
+  gap: clamp(2rem,1vw + 1.65rem,2rem);
   display: flex;
 }
 
@@ -272,7 +272,8 @@
 
 .gdpr-links-wrapper {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .gdpr-links-wrapper ul {
