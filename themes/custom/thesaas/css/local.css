@@ -302,3 +302,14 @@
   align-items: center;
   padding: 10px 0;
 }
+
+@media only screen and (max-width: 510px) {
+  .logo__link-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .footer__bottom-wrapper {
+    justify-content: center;
+    text-align: center;
+  }
+}
