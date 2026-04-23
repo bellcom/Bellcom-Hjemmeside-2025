@@ -34,6 +34,7 @@
         "drupal/paragraphs": "^1.15",
         "drupal/pathauto": "^1.11",
         "drupal/simplenews": "^4.0",
+        "drupal/smtp": "^1.4",
         "drupal/tvi": "^2.0",
         "drupal/video_embed_field": "^3.0@alpha",
         "drupal/viewsreference": "^2.0@beta",
