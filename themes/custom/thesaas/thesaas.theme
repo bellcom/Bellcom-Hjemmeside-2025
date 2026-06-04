@@ -164,6 +164,25 @@ function thesaas_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_s
   }
 }
 
+/**
+ * Ensures contact messages always have a subject before mail is sent.
+ *
+ * Drupal 11 throws TypeError if subject is NULL when rendering mail templates.
+ *
+ * @see https://www.drupal.org/project/contact/issues/3301782
+ */
+function thesaas_entity_presave(\Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() !== 'contact_message' || !$entity->hasField('subject')) {
+    return;
+  }
+  if (!$entity->get('subject')->isEmpty()) {
+    return;
+  }
+  $form = $entity->getContactForm();
+  $default = $form ? $form->label() : '';
+  $entity->set('subject', $default !== '' ? $default : 'Kontaktformular');
+}
+
 function thesaas_module_simplenews_subscribe(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
     var_dump('we sent a form woohoo');
     //$url = \Drupal\Core\Url::fromUserInput('/page-thank-you');
