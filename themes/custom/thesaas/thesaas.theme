@@ -122,22 +122,31 @@ function thesaas_preprocess_block(&$variables) {
 */
 function thesaas_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
 
-// Check if this is the contact form 'book_en_demo'
+  // Check if this is the contact form 'book_en_demo'
   if ($form_id === 'contact_message_book_en_demo_form') {
-    $solution = \Drupal::request()->query->get('solution');
+    
+    // FIKS 1: Kør kun koden, hvis formularen IKKE er ved at blive indsendt/behandlet
+    if (!$form_state->isProcessingInput()) {
+      $solution = \Drupal::request()->query->get('solution');
 
-    $valid_values = [
-      'digital_skiltning',
-      'formular',
-      'valg_og_bemanding',
-      'webplatforme',
-      'borgerinddragelse',
-      'moder_og_dagsorden',
-    ];
+      $valid_values = [
+        'digital_skiltning',
+        'formular',
+        'valg_og_bemanding',
+        'webplatforme',
+        'borgerinddragelse',
+        'moder_og_dagsorden',
+      ];
 
-    if (!empty($solution) && in_array($solution, $valid_values)) {
-      if (isset($form['field_solution'])) {
-        $form['field_solution']['widget'][0]['value']['#default_value'] = $solution;
+      if (!empty($solution) && in_array($solution, $valid_values)) {
+        // FIKS 2: Tjek dybden af arrayet med isset, før værdien overskrives
+        if (isset($form['field_solution']['widget'][0]['value'])) {
+          $form['field_solution']['widget'][0]['value']['#default_value'] = $solution;
+        }
+        // Hvis feltet er en Select-liste eller Entity Reference, hedder stien ofte dette i stedet:
+        elseif (isset($form['field_solution']['widget']['#default_value'])) {
+          $form['field_solution']['widget']['#default_value'] = $solution;
+        }
       }
     }
   }
@@ -145,13 +154,13 @@ function thesaas_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_s
   // disable submit button on the search block form
   if (in_array($form_id, ['search_block_form', 'search_form'])) {
     $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
-
-    $form[$key]['submit']['#access'] = false;
+    if (isset($form[$key]['submit'])) {
+      $form[$key]['submit']['#access'] = false;
+    }
   }
+
   if (strpos($form_id, 'simplenews_subscriptions') !== false) {
-    //dpm($form);
-    //$form['actions']['subscribe']['#submit'][] = 'thesaas_module_simplenews_subscribe';
-    //$form['actions']['unsubscribe']['#submit'][] = 'thesaas_module_simplenews_unsubscribe';
+    // dpm($form);
   }
 }
 
