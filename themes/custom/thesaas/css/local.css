@@ -313,3 +313,12 @@
     text-align: center;
   }
 }
+
+input::placeholder {
+  color: black !important;
+}
+
+#edit-field-solution {
+  font-size: 14px;
+  padding: 7px 20px;
+}
