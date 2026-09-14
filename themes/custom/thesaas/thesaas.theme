@@ -122,6 +122,11 @@ function thesaas_preprocess_block(&$variables) {
 */
 function thesaas_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
 
+  // Contact forms: ensure subject is a string before mail is sent (Drupal 11).
+  if (preg_match('/^contact_message_.*_form$/', $form_id) && isset($form['actions']['submit']['#submit'])) {
+    array_unshift($form['actions']['submit']['#submit'], 'thesaas_contact_message_ensure_subject');
+  }
+
   // Check if this is the contact form 'book_en_demo'
   if ($form_id === 'contact_message_book_en_demo_form') {
     
@@ -165,22 +170,26 @@ function thesaas_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_s
 }
 
 /**
- * Ensures contact messages always have a subject before mail is sent.
+ * Sets a non-empty subject on contact messages when the field is hidden.
  *
- * Drupal 11 throws TypeError if subject is NULL when rendering mail templates.
+ * Drupal 11 ContactHooks::mail() passes @subject into t(); NULL causes
+ * Html::escape() TypeError. hook_entity_presave in themes is not invoked,
+ * so this runs as an early form submit handler instead.
  *
- * @see https://www.drupal.org/project/contact/issues/3301782
+ * @see https://www.drupal.org/project/contact/issues/3515019
+ * @see https://www.drupal.org/project/contact/issues/3579990
  */
-function thesaas_entity_presave(\Drupal\Core\Entity\EntityInterface $entity) {
-  if ($entity->getEntityTypeId() !== 'contact_message' || !$entity->hasField('subject')) {
+function thesaas_contact_message_ensure_subject(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $contact_message = $form_state->getFormObject()->getEntity();
+  if ($contact_message->getEntityTypeId() !== 'contact_message' || !$contact_message->hasField('subject')) {
     return;
   }
-  if (!$entity->get('subject')->isEmpty()) {
+  if (!$contact_message->get('subject')->isEmpty()) {
     return;
   }
-  $form = $entity->getContactForm();
-  $default = $form ? $form->label() : '';
-  $entity->set('subject', $default !== '' ? $default : 'Kontaktformular');
+  $contact_form = $contact_message->getContactForm();
+  $default = $contact_form ? (string) $contact_form->label() : '';
+  $contact_message->set('subject', $default !== '' ? $default : 'Kontaktformular');
 }
 
 function thesaas_module_simplenews_subscribe(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
