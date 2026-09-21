@@ -1086,3 +1086,8 @@ a.lpb-btn { color: #4a90e2 !important; }
 }
 
 
+.footer-socials a:hover {
+  background-color: #333;
+  color: #fff;
+  transition: .2s ease;
+}
