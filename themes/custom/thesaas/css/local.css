@@ -237,6 +237,34 @@
   flex: 0 auto;
 }
 
+/* Dynamic footer product icons (custom block HTML + body class). */
+.footer__logo .footer-logo {
+  display: none;
+  vertical-align: middle;
+}
+
+.footer__logo .footer-logo--default {
+  display: inline-block;
+}
+
+body.footer-page--valg-og-bemanding .footer__logo .footer-logo--default,
+body.footer-page--borgerinddragelse .footer__logo .footer-logo--default,
+body.footer-page--display .footer__logo .footer-logo--default,
+body.footer-page--formularer .footer__logo .footer-logo--default,
+body.footer-page--webplatforme .footer__logo .footer-logo--default,
+body.footer-page--hosting .footer__logo .footer-logo--default {
+  display: none;
+}
+
+body.footer-page--valg-og-bemanding .footer__logo .footer-logo--valg-og-bemanding,
+body.footer-page--borgerinddragelse .footer__logo .footer-logo--borgerinddragelse,
+body.footer-page--display .footer__logo .footer-logo--digital-skiltning,
+body.footer-page--formularer .footer__logo .footer-logo--formular,
+body.footer-page--webplatforme .footer__logo .footer-logo--webplatforme,
+body.footer-page--hosting .footer__logo .footer-logo--hosting {
+  display: inline-block;
+}
+
 .footer__site-links-wrapper {
   flex: 0 auto;
   display: flex;
