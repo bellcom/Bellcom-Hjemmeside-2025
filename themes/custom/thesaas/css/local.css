@@ -348,3 +348,41 @@ body.footer-page--hosting .footer__logo .footer-logo--hosting {
   padding: 7px 20px;
   color: gray;
 }
+
+/* Status / success messages – match site look */
+.alert-wrapper .alert.alert-success {
+  background-color: #fff;
+  border: none;
+  border-top: 3px solid #383a35;
+  border-radius: 0;
+  color: #383a35;
+  box-shadow: none;
+  align-items: center;
+}
+
+.alert-wrapper .alert.alert-success .alert-heading {
+  color: #383a35;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+
+.alert-wrapper .alert.alert-success > svg.bi {
+  display: none;
+}
+
+.alert-wrapper .alert.alert-success::before {
+  content: "";
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  margin-right: 1.5rem;
+  background: url("/themes/custom/thesaas/img/bc-ikon-favicon.svg") no-repeat center / contain;
+}
+
+.alert-wrapper .alert.alert-success .btn-close {
+  filter: none;
+  opacity: 0.7;
+}
